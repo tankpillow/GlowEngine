@@ -1,0 +1,41 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 25
+    },
+    "configurePresets": [
+        {
+            "name": "desktop-debug",
+            "displayName": "Desktop (DEBUG)",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "PLATFORM": "Desktop"
+            }
+        },
+        {
+            "name": "desktop-release",
+            "displayName": "Desktop (RELEASE)",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "PLATFORM": "Desktop"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "desktop-debug",
+            "configurePreset": "desktop-debug"
+        },
+        {
+            "name": "desktop-release",
+            "configurePreset": "desktop-release"
+        }
+    ]
+}
